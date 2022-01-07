@@ -1,4 +1,4 @@
-const GameFactoy = require("./utils/GameFactoy");
+const GameFactoy = require("./core/GameFactoy");
 let game
 module.exports = (socket) => {
     socket.on('newGame', (gameName) => {
