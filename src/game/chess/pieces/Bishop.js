@@ -20,7 +20,6 @@ module.exports = class Bishop extends ChessPieceAbstract {
         let i = this.x + directionX
         let j = this.y + directionY
         while (i !== x && j !== y) {
-            console.log('i j x y tx ty dx dy', i, j, x, y, this.x, this.y, directionX, directionY)
             if (board[i][j].name !== '') {
 
                 return false
