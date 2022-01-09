@@ -1,7 +1,12 @@
 const PieceFactory = require("../../core/PieceFactory");
 
 module.exports = class Chess {
-    _board;
+    _board
+    _turn
+
+    constructor() {
+        this._turn = Math.random() * 2 + 1
+    }
 
     newGame() {
         this.board = [];
@@ -58,10 +63,14 @@ module.exports = class Chess {
     }
 
     move(x1, y1, x2, y2) {
+        if (this.turn !== this.board[x1][y1].player) {
+            return false
+        }
         if (this.board[x1][y1].canMove(this.board, x2, y2)) {
             this.board[x1][y1].move(x2, y2);
             this.board[x2][y2] = this.board[x1][y1]
             this.board[x1][y1] = PieceFactory.getPiece();
+            this._turn = this._turn == 1 ? 2 : 1
 
             return true
         }
@@ -84,5 +93,9 @@ module.exports = class Chess {
 
     set board(value) {
         this._board = value;
+    }
+
+    get turn() {
+        return this._turn;
     }
 }

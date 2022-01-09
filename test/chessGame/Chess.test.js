@@ -53,6 +53,7 @@ describe('Chess behavior', ()=>{
     describe('move should', ()=>{
         beforeEach(() => {
             underProve.newGame()
+            underProve._turn = 2
         })
         test(' return true if can move', ()=>{
             expect(underProve.move(1, 0, 2, 0)).toBeTruthy()
@@ -64,6 +65,14 @@ describe('Chess behavior', ()=>{
         })
         test(' return false if can not move', ()=>{
             expect(underProve.move(0, 0, 5, 0)).toBeFalsy()
+        })
+        test(' return false if is player 2 turn and try to move a player 1 piece', ()=>{
+            expect(underProve.move(0, 0, 5, 0)).toBeFalsy()
+        })
+        test(' change turn if it could move', ()=>{
+            expect(underProve._turn).toStrictEqual(2)
+            underProve.move(1, 0, 2, 0)
+            expect(underProve._turn).toStrictEqual(1)
         })
     })
 })
