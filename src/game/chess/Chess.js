@@ -5,7 +5,7 @@ module.exports = class Chess {
     _turn
 
     constructor() {
-        this._turn = Math.random() * 2 + 1
+        this._turn = Math.floor(Math.random() * 2 + 1)
     }
 
     newGame() {
@@ -85,7 +85,10 @@ module.exports = class Chess {
                 data[i].push(this.board[i][j].getData(this.board))
             }
         }
-        return data
+        return {
+            turn: this._turn,
+            board: data
+        }
     }
     get board() {
         return this._board;
