@@ -101,4 +101,20 @@ module.exports = class Chess {
     get turn() {
         return this._turn;
     }
+
+    getWinner() {
+        const kings = []
+        let winner = 0
+        for (let i = 0; i < this.board.length; i++) {
+            for (let j = 0; j < this.board[i].length; j++) {
+                if (this.board[i][j].name == 'king') {
+                    kings.push(this.board[i][j])
+                }
+            }
+        }
+        if (kings.length == 1) {
+            winner = kings[0].player
+        }
+        return winner
+    }
 }
