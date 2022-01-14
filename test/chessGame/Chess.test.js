@@ -1,5 +1,5 @@
 const Chess = require('../../src/game/chess/Chess')
-const ChessPieceAbstract = require('../../src/game/chess/ChessPieceAbstract')
+const PieceFactory = require('../../src/core/PieceFactory')
 
 let underProve, board
 describe('Chess behavior', ()=>{
@@ -53,6 +53,7 @@ describe('Chess behavior', ()=>{
     describe('move should', ()=>{
         beforeEach(() => {
             underProve.newGame()
+            underProve._turn = 2
         })
         test(' return true if can move', ()=>{
             expect(underProve.move(1, 0, 2, 0)).toBeTruthy()
@@ -64,6 +65,33 @@ describe('Chess behavior', ()=>{
         })
         test(' return false if can not move', ()=>{
             expect(underProve.move(0, 0, 5, 0)).toBeFalsy()
+        })
+        test(' return false if is player 2 turn and try to move a player 1 piece', ()=>{
+            expect(underProve.move(0, 0, 5, 0)).toBeFalsy()
+        })
+        test(' change turn if it could move', ()=>{
+            expect(underProve._turn).toStrictEqual(2)
+            underProve.move(1, 0, 2, 0)
+            expect(underProve._turn).toStrictEqual(1)
+        })
+    })
+    describe('getWinner should', ()=>{
+        beforeEach(() => {
+            underProve.newGame()
+            underProve._turn = 2
+        })
+        test(' return 0 if there is no winner yet', ()=>{
+            expect(underProve.getWinner()).toStrictEqual(0)
+        })
+        test(' return 1 if the only king left is player 1', ()=>{
+            const board = underProve.board
+            board[0][3] = PieceFactory.getPiece()
+            expect(underProve.getWinner()).toStrictEqual(1)
+        })
+        test(' return 2 if the only king left is player 2', ()=>{
+            const board = underProve.board
+            board[7][3] = PieceFactory.getPiece()
+            expect(underProve.getWinner()).toStrictEqual(2)
         })
     })
 })
