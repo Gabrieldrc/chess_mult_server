@@ -2,8 +2,8 @@ const Knight = require('../../src/game/chess/pieces/Knight')
 const Pawn = require('../../src/game/chess/pieces/Pawn')
 const { position, createData, emptyBoard} = require('../utils')
 
-let underProve, board
 describe('Kngiht Behavior', () => {
+    let underProve, board
     beforeEach(()=>{
         board = emptyBoard(5)
         board[2][2] = underProve = new Knight(1, 2, 2)

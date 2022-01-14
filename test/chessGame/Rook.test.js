@@ -2,8 +2,8 @@ const Rook = require('../../src/game/chess/pieces/Rook')
 const Pawn = require('../../src/game/chess/pieces/Pawn')
 const {emptyBoard, position, createData} = require("../utils");
 
-let underProve1, board
 describe('Rook Behavior', () => {
+    let underProve1, board
     beforeAll(()=> {
         board = emptyBoard()
         board[0][0] = underProve1 = new Rook(1, 0, 0)

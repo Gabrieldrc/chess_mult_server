@@ -1,7 +1,7 @@
 const EmptySpaceChess = require('../../src/game/chess/pieces/EmptySpaceChess')
 
-let underProve
 describe('EmptySpaceChess', () =>{
+    let underProve
     beforeAll(()=>{
         underProve = new EmptySpaceChess()
     })

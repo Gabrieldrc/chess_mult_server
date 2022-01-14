@@ -1,7 +1,7 @@
 const ChessPieceAbstract = require('../../src/game/chess/ChessPieceAbstract');
 
-let underProve
 describe('ChessPieceAbstract', ()=> {
+    let underProve
     beforeAll(() => {
         underProve = new ChessPieceAbstract(-1, '', 0, 0)
     })

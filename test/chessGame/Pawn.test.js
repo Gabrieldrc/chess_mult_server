@@ -1,8 +1,8 @@
 const Pawn = require('../../src/game/chess/pieces/Pawn')
 const {emptyBoard, position, createData} = require("../utils");
 
-let underProve1, underProve2, board
 describe('Pawn Behavior', () => {
+    let underProve1, underProve2, board
     describe('Player 1\' pawn piece', () => {
         beforeAll(()=> {
             underProve1 = new Pawn(1, 1, 1)

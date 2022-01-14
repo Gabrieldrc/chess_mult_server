@@ -1,8 +1,8 @@
 const Chess = require('../../src/game/chess/Chess')
 const PieceFactory = require('../../src/core/PieceFactory')
 
-let underProve, board
 describe('Chess behavior', ()=>{
+    let underProve, board
     beforeAll(()=>{
         underProve = new Chess()
         underProve.newGame()

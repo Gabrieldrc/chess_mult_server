@@ -4,8 +4,8 @@ const Rook = require('../../src/game/chess/pieces/Rook')
 
 const {emptyBoard, createData, position} = require('../utils')
 
-let underProve, board
 describe('King behavior', ()=>{
+    let underProve, board
     beforeEach(() => {
         board = emptyBoard(5)
         board[2][2] = underProve = new King(1, 2, 2)

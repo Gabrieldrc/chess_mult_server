@@ -2,8 +2,8 @@ const Bishop = require('../../src/game/chess/pieces/Bishop')
 const Pawn = require('../../src/game/chess/pieces/Pawn')
 const {position, emptyBoard, createData} = require('../utils')
 
-let underProve, board
 describe('Bishop Behavior', ()=>{
+    let underProve, board
     beforeEach(()=>{
         board = emptyBoard(5)
         board[2][2] = underProve = new Bishop(1, 2, 2)

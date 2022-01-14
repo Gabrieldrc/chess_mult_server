@@ -1,8 +1,8 @@
 const Queen = require('../../src/game/chess/pieces/Queen')
 const {position, createData, emptyBoard} = require('../utils')
 
-let underProve, board
 describe('Queen behavior', ()=>{
+    let underProve, board
     beforeEach(()=>{
         board = emptyBoard(5)
         board[2][2] = underProve = new Queen(1, 2, 2)
